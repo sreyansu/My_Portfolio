@@ -50,6 +50,11 @@ section.visible {
   .text-balance {
     text-wrap: balance;
   }
+
+  .shadow-glow {
+    box-shadow: 0 0 10px theme('colors.primary.500'),
+                0 0 20px theme('colors.primary.500/50');
+  }
 }
 
 @layer base {
