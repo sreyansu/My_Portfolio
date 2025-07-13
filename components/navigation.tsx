@@ -10,17 +10,12 @@ interface NavigationProps {
 }
 
 export function Navigation({ currentSection, setCurrentSection }: NavigationProps) {
-  const [scrollY, setScrollY] = useState(0)
-  const [isVisible, setIsVisible] = useState(true)
+  const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY
-      setScrollY(currentScrollY)
-
-      // Hide navigation when heavily zoomed (scroll-based)
-      const zoomLevel = 1 + (currentScrollY / (window.innerHeight * 0.8)) * 1.5
-      setIsVisible(zoomLevel < 2.5)
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 50)
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
@@ -35,11 +30,31 @@ export function Navigation({ currentSection, setCurrentSection }: NavigationProp
     { id: "contact", label: "Contact", icon: Mail },
   ]
 
-  const handleZoomControl = (action: "in" | "out" | "reset") => {
-    const currentScroll = window.scrollY
-    let targetScroll = currentScroll
-
-    switch (action) {
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      isScrolled ? 'bg-black/80 backdrop-blur-sm' : 'bg-transparent'
+    }`}>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-center h-16 gap-2">
+          {navItems.map(({ id, label, icon: Icon }) => (
+            <Button
+              key={id}
+              variant={currentSection === id ? "default" : "ghost"}
+              className={`transition-all duration-300 ${
+                currentSection === id
+                  ? 'bg-primary text-primary-foreground'
+                  : 'text-gray-400 hover:text-white'
+              }`}
+              onClick={() => setCurrentSection(id)}
+            >
+              <Icon className="w-4 h-4 mr-2" />
+              {label}
+            </Button>
+          ))}
+        </div>
+      </div>
+    </nav>
+  )
       case "in":
         targetScroll = Math.min(currentScroll + window.innerHeight * 0.2, window.innerHeight * 2)
         break

@@ -6,6 +6,7 @@ export function Background3D() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number>()
   const isRunningRef = useRef(true)
+  const zoomRef = useRef(1)
 
   const animate = useCallback(() => {
     const canvas = canvasRef.current
@@ -13,6 +14,10 @@ export function Background3D() {
 
     const ctx = canvas.getContext("2d")
     if (!ctx) return
+
+    // Get scroll position for parallax effect
+    const scrollProgress = scrollRef.current / (document.documentElement.scrollHeight - window.innerHeight)
+    const zoomFactor = 1 + (scrollProgress * 0.5) // Zoom effect based on scroll
 
     // Continue animation loop
     animationRef.current = requestAnimationFrame(animate)
