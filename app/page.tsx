@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { useSectionVisibility } from "@/lib/use-section-visibility"
-import { ThemeProvider } from "@/components/theme-provider"
 import { Navigation } from "@/components/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { AboutSection } from "@/components/about-section"
@@ -45,39 +44,37 @@ export default function Portfolio() {
   };
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-      <div className="w-full min-h-screen bg-white dark:bg-black transition-colors duration-300">
-        {/* 3D Background */}
-        <div className="fixed top-0 left-0 w-full h-full">
-          <Background3D />
-        </div>
-
-        {/* UI Overlay */}
-        <div className="relative z-10">
-          <Navigation 
-            currentSection={currentSection} 
-            setCurrentSection={scrollToSection} 
-          />
-
-          <main className="container mx-auto px-4">
-            <section id="home" className="min-h-screen flex items-center justify-center">
-              <HeroSection setCurrentSection={scrollToSection} />
-            </section>
-            <section id="about" className="min-h-screen flex items-center justify-center">
-              <AboutSection />
-            </section>
-            <section id="projects" className="min-h-screen flex items-center justify-center">
-              <ProjectsSection />
-            </section>
-            <section id="skills" className="min-h-screen flex items-center justify-center">
-              <SkillsSection />
-            </section>
-            <section id="contact" className="min-h-screen flex items-center justify-center">
-              <ContactSection />
-            </section>
-          </main>
-        </div>
+    <div className="w-full min-h-screen bg-black">
+      {/* 3D Background */}
+      <div className="fixed top-0 left-0 w-full h-full">
+        <Background3D />
       </div>
-    </ThemeProvider>
+
+      {/* UI Overlay */}
+      <div className="relative z-10">
+        <Navigation 
+          currentSection={currentSection} 
+          setCurrentSection={scrollToSection} 
+        />
+
+        <main className="container mx-auto px-4">
+          <section id="home" className="min-h-screen flex items-center justify-center">
+            <HeroSection setCurrentSection={scrollToSection} />
+          </section>
+          <section id="about" className="min-h-screen flex items-center justify-center">
+            <AboutSection />
+          </section>
+          <section id="projects" className="min-h-screen flex items-center justify-center">
+            <ProjectsSection />
+          </section>
+          <section id="skills" className="min-h-screen flex items-center justify-center">
+            <SkillsSection />
+          </section>
+          <section id="contact" className="min-h-screen flex items-center justify-center">
+            <ContactSection />
+          </section>
+        </main>
+      </div>
+    </div>
   )
 }

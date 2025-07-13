@@ -1,9 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { Home, User, Code, Zap, Mail, Sun, Moon } from "lucide-react"
+import { Home, User, Code, Zap, Mail } from "lucide-react"
 import { useEffect, useState } from "react"
-import { useTheme } from "next-themes"
 
 interface NavigationProps {
   currentSection: string
@@ -12,13 +11,6 @@ interface NavigationProps {
 
 export function Navigation({ currentSection, setCurrentSection }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
-
-  // Prevent hydration mismatch
-  useEffect(() => {
-    setMounted(true)
-  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,46 +31,27 @@ export function Navigation({ currentSection, setCurrentSection }: NavigationProp
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/80 dark:bg-black/80 backdrop-blur-sm shadow-sm' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 ${
+      isScrolled ? 'bg-black/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex-1" /> {/* Spacer */}
-          <div className="flex items-center justify-center gap-2">
-            {navItems.map(({ id, label, icon: Icon }) => (
-              <Button
-                key={id}
-                variant="ghost"
-                size="sm"
-                onClick={() => setCurrentSection(id)}
-                className={`transition-all duration-300 ${
-                  currentSection === id
-                    ? 'bg-primary/20 text-primary shadow-glow dark:text-cyan-400'
-                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-100/50 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-800/50'
-                }`}
-              >
-                <Icon className="w-4 h-4 mr-2" />
-                {label}
-              </Button>
-            ))}
-          </div>
-          <div className="flex-1 flex justify-end">
-            {mounted && (
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                className="w-10 h-10 rounded-full"
-              >
-                {theme === "dark" ? (
-                  <Sun className="h-5 w-5 text-gray-300 hover:text-yellow-400 transition-colors" />
-                ) : (
-                  <Moon className="h-5 w-5 text-gray-600 hover:text-blue-900 transition-colors" />
-                )}
-              </Button>
-            )}
-          </div>
+        <div className="flex items-center justify-center h-12 gap-4">
+          {navItems.map(({ id, label, icon: Icon }) => (
+            <Button
+              key={id}
+              variant="ghost"
+              size="default"
+              onClick={() => setCurrentSection(id)}
+              className={`min-w-[120px] transition-all duration-300 ${
+                currentSection === id
+                  ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50'
+                  : 'text-gray-300 hover:text-white hover:bg-white/5'
+              }`}
+            >
+              <Icon className="w-4 h-4 mr-3" />
+              <span className="text-sm font-medium">{label}</span>
+            </Button>
+          ))}
         </div>
       </div>
     </nav>

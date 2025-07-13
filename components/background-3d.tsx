@@ -43,18 +43,10 @@ export function Background3D() {
     const ctx = canvas.getContext("2d")
     if (!ctx) return
 
-    // Clear canvas with a theme-aware gradient background
-    const isDark = document.documentElement.classList.contains('dark')
+    // Clear canvas with a gradient background
     const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height)
-    
-    if (isDark) {
-      gradient.addColorStop(0, 'rgba(0, 0, 15, 0.95)')
-      gradient.addColorStop(1, 'rgba(10, 10, 35, 0.95)')
-    } else {
-      gradient.addColorStop(0, 'rgba(240, 240, 250, 0.95)')
-      gradient.addColorStop(1, 'rgba(250, 250, 255, 0.95)')
-    }
-    
+    gradient.addColorStop(0, 'rgba(0, 0, 15, 0.95)')
+    gradient.addColorStop(1, 'rgba(10, 10, 35, 0.95)')
     ctx.fillStyle = gradient
     ctx.fillRect(0, 0, canvas.width, canvas.height)
 
@@ -83,10 +75,7 @@ export function Background3D() {
       // Draw particle
       ctx.beginPath()
       ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2)
-      const isDark = document.documentElement.classList.contains('dark')
-      ctx.fillStyle = isDark 
-        ? `rgba(56, 189, 248, ${particle.opacity})`
-        : `rgba(14, 165, 233, ${particle.opacity})`
+      ctx.fillStyle = `rgba(56, 189, 248, ${particle.opacity})`
       ctx.fill()
 
       // Draw connections
@@ -100,10 +89,7 @@ export function Background3D() {
           ctx.beginPath()
           ctx.moveTo(particle.x, particle.y)
           ctx.lineTo(p2.x, p2.y)
-          const isDark = document.documentElement.classList.contains('dark')
-          ctx.strokeStyle = isDark
-            ? `rgba(56, 189, 248, ${0.1 * (1 - distance / 100)})`
-            : `rgba(14, 165, 233, ${0.1 * (1 - distance / 100)})`
+          ctx.strokeStyle = `rgba(56, 189, 248, ${0.1 * (1 - distance / 100)})`
           ctx.stroke()
         }
       })
