@@ -31,25 +31,25 @@ export function Navigation({ currentSection, setCurrentSection }: NavigationProp
   ]
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/80 backdrop-blur-sm' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 ${
+      isScrolled ? 'bg-black/90 backdrop-blur-md shadow-lg' : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center h-16 gap-2">
+        <div className="flex items-center justify-center h-12 gap-4">
           {navItems.map(({ id, label, icon: Icon }) => (
             <Button
               key={id}
               variant="ghost"
-              size="sm"
+              size="default"
               onClick={() => setCurrentSection(id)}
-              className={`transition-all duration-300 ${
+              className={`min-w-[120px] transition-all duration-300 ${
                 currentSection === id
-                  ? 'bg-primary/20 text-primary shadow-glow'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-800/50'
+                  ? 'bg-cyan-500/20 text-cyan-400 border border-cyan-500/50'
+                  : 'text-gray-300 hover:text-white hover:bg-white/5'
               }`}
             >
-              <Icon className="w-4 h-4 mr-2" />
-              {label}
+              <Icon className="w-4 h-4 mr-3" />
+              <span className="text-sm font-medium">{label}</span>
             </Button>
           ))}
         </div>
