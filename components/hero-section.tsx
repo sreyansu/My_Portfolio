@@ -1,7 +1,8 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ChevronDown, Download, Github, Linkedin } from "lucide-react"
+import { ChevronDown, Download, Github, Linkedin, Instagram } from "lucide-react"
+import { SocialIcon } from 'react-social-icons'
 import { useEffect, useState } from "react"
 
 interface HeroSectionProps {
@@ -11,8 +12,8 @@ interface HeroSectionProps {
 export function HeroSection({ setCurrentSection }: HeroSectionProps) {
   const [text, setText] = useState("")
   const [subtitle, setSubtitle] = useState("")
-  const titleText = "Alex Chen"
-  const subtitleText = "Computer Science Engineer"
+  const titleText = "Sreyansu Sekhar Mohanty"
+  const subtitleText = "Computer Science & Engineering Undergraduate"
 
   useEffect(() => {
     let i = 0
@@ -53,7 +54,7 @@ export function HeroSection({ setCurrentSection }: HeroSectionProps) {
         <Button 
           size="lg" 
           variant="outline"
-          onClick={() => window.open("#", "_blank")}
+          onClick={() => window.open("https://drive.google.com/file/d/1iyX9dgeT2ne-7BdoEa3zg2cCsdT3niqF/view?usp=sharing", "_blank")}
           className="border-cyan-500 text-cyan-500 hover:bg-cyan-500/10"
         >
           <Download className="w-4 h-4 mr-2" />
@@ -64,18 +65,34 @@ export function HeroSection({ setCurrentSection }: HeroSectionProps) {
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => window.open("https://github.com/yourusername", "_blank")}
-          className="text-gray-400 hover:text-white hover:bg-white/10"
+          onClick={() => window.open("https://github.com/sreyansu", "_blank")}
+          className="text-gray-400 hover:text-[#2dba4e] hover:bg-[#2dba4e]/10 transition-all duration-300"
         >
           <Github className="w-5 h-5" />
         </Button>
         <Button
           variant="ghost"
           size="icon"
-          onClick={() => window.open("https://linkedin.com/in/yourusername", "_blank")}
-          className="text-gray-400 hover:text-white hover:bg-white/10"
+          onClick={() => window.open("https://www.linkedin.com/in/sreyansu-sekhar-mohanty-774153297/", "_blank")}
+          className="text-gray-400 hover:text-[#0A66C2] hover:bg-[#0A66C2]/10 transition-all duration-300"
         >
           <Linkedin className="w-5 h-5" />
+        </Button>
+        <SocialIcon
+          url="https://x.com/SekharSreyansu"
+          style={{ height: 40, width: 40 }}
+          target="_blank"
+          bgColor="transparent"
+          fgColor="#808080"
+          className="hover:opacity-80 transition-opacity"
+        />
+        <Button
+          variant="ghost"
+          size="icon"
+          onClick={() => window.open("https://www.instagram.com/sreyansu_sm/", "_blank")}
+          className="text-gray-400 hover:text-[#E4405F] hover:bg-[#E4405F]/10 transition-all duration-300"
+        >
+          <Instagram className="w-5 h-5" />
         </Button>
       </div>
       <Button
