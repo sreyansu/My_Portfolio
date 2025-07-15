@@ -58,7 +58,7 @@ export function HeroSection({ setCurrentSection }: HeroSectionProps) {
           className="border-cyan-500 text-cyan-500 hover:bg-cyan-500/10"
         >
           <Download className="w-4 h-4 mr-2" />
-          Download CV
+          Download Resume
         </Button>
       </div>
       <div className="flex items-center gap-4 mt-8">
