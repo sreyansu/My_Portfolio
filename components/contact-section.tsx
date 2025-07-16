@@ -6,56 +6,35 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from "lucide-react"
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from "lucide-react"
 import { useState } from "react"
+import { SocialIcon } from 'react-social-icons'
 
 export function ContactSection() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    console.log("Form submitted:", formData)
-    setFormData({ name: "", email: "", subject: "", message: "" })
-  }
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }))
-  }
-
   const contactInfo = [
     {
       icon: Mail,
       label: "Email",
-      value: "alex.chen@example.com",
-      href: "mailto:alex.chen@example.com",
+      value: "sreyansu90@gmail.com",
+      href: "mailto:sreyansu90@gmail.com",
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
+      value: "+91 9861634516",
+      href: "tel:+919861634516",
     },
     {
       icon: MapPin,
       label: "Location",
-      value: "San Francisco, CA",
-      href: "#",
+      value: "Bhadrak, Odisha, India",
+      href: "https://maps.app.goo.gl/LDqh2tp7cxQp7WYp8",
     },
   ]
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" },
+    { icon: Github, href: "https://github.com/sreyansu", label: "GitHub" },
+    { icon: Linkedin, href: "https://linkedin.com/in/sreyansu-sekhar-mohanty-3a1472193", label: "LinkedIn" },
   ]
 
   return (
@@ -75,13 +54,19 @@ export function ContactSection() {
               <CardTitle className="text-white text-2xl">Send a Message</CardTitle>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form 
+                action="https://formsubmit.co/sreyansu90@gmail.com" 
+                method="POST"
+                className="space-y-6"
+              >
+                {/* Disable captcha */}
+                <input type="hidden" name="_captcha" value="false" />
+                {/* Redirect after submission */}
+                <input type="hidden" name="_next" value="https://your-portfolio-domain.com/thanks" />
                 <div className="grid md:grid-cols-2 gap-4">
                   <Input
                     name="name"
                     placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
                     className="bg-black/50 border-cyan-500/30 text-white placeholder:text-gray-400 focus:border-cyan-400"
                     required
                   />
@@ -89,8 +74,6 @@ export function ContactSection() {
                     name="email"
                     type="email"
                     placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
                     className="bg-black/50 border-cyan-500/30 text-white placeholder:text-gray-400 focus:border-cyan-400"
                     required
                   />
@@ -98,16 +81,12 @@ export function ContactSection() {
                 <Input
                   name="subject"
                   placeholder="Subject"
-                  value={formData.subject}
-                  onChange={handleChange}
                   className="bg-black/50 border-cyan-500/30 text-white placeholder:text-gray-400 focus:border-cyan-400"
                   required
                 />
                 <Textarea
                   name="message"
                   placeholder="Your Message"
-                  value={formData.message}
-                  onChange={handleChange}
                   rows={6}
                   className="bg-black/50 border-cyan-500/30 text-white placeholder:text-gray-400 focus:border-cyan-400 resize-none"
                   required
@@ -165,6 +144,22 @@ export function ContactSection() {
                       </a>
                     </Button>
                   ))}
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    className="border-cyan-500/50 hover:bg-cyan-500/10 hover:border-cyan-400 transition-all duration-300 bg-transparent p-0 h-10 w-10"
+                    asChild
+                  >
+                    <a href="https://x.com/SekharSreyansu" aria-label="Twitter">
+                      <SocialIcon
+                        url="https://x.com/SekharSreyansu"
+                        style={{ height: 36, width: 36 }}
+                        bgColor="transparent"
+                        fgColor="rgb(34 211 238)" // text-cyan-400
+                        className="hover:opacity-80 transition-opacity"
+                      />
+                    </a>
+                  </Button>
                 </div>
                 <p className="text-gray-400 mt-4 text-sm">
                   Feel free to connect with me on social media or check out my latest projects on GitHub!
