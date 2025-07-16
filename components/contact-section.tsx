@@ -62,7 +62,9 @@ export function ContactSection() {
                 {/* Disable captcha */}
                 <input type="hidden" name="_captcha" value="false" />
                 {/* Redirect after submission */}
-                <input type="hidden" name="_next" value="https://your-portfolio-domain.com/thanks" />
+                <input type="hidden" name="_next" value="https://sreyansusekharmohanty.netlify.app" />
+                {/* Custom subject */}
+                <input type="hidden" name="_subject" value="New Portfolio Contact Form Submission" />
                 <div className="grid md:grid-cols-2 gap-4">
                   <Input
                     name="name"
