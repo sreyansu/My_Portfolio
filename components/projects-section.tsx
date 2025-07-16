@@ -8,53 +8,21 @@ import { ExternalLink, Github, Play } from "lucide-react"
 export function ProjectsSection() {
   const projects = [
     {
-      title: "AI-Powered Chat Application",
-      description: "A real-time chat application with AI-powered message suggestions and sentiment analysis.",
-      technologies: ["React", "Node.js", "Socket.io", "TensorFlow.js", "MongoDB"],
-      github: "#",
-      demo: "#",
+      title: "Aerotech Website",
+      description: "The AeroTech VSSUT website is a modern, responsive web application built using React, TypeScript, and Vite for fast performance and modular development. Styled with Tailwind CSS, it features smooth animations and interactive UI using Framer Motion. The site includes dynamic sections like Team Showcase, Events Timeline, and About the Club, organized through a component-based structure. It supports dark/light mode, has SEO-friendly routing with React Router, and is deployed on Netlify for reliable hosting.A website showcasing Aerotech's innovative solutions and services.",
+      technologies: ["React.js", "Tailwind CSS", "TypeScript"],
+      demo: "https://aerotechvssut.com/",
       featured: true,
     },
     {
-      title: "Smart Campus Management System",
-      description: "A comprehensive system for managing campus resources, student data, and academic workflows.",
-      technologies: ["Next.js", "PostgreSQL", "Prisma", "TypeScript", "Tailwind CSS"],
-      github: "#",
-      demo: "#",
+      title: "Weathora - Weather App",
+      description: "Weathora is a modern weather web application built using React, TypeScript, and Vite, focused on performance and sleek user experience. It fetches real-time weather data from WeatherAPI and carbon footprint data from CarbonAPI, presenting information with a clean, animated, and adaptive UI. The design dynamically changes based on current weather conditions (e.g., sun, rain, haze) using Framer Motion and conditional styling. The app is fully responsive, optimized for mobile and desktop, and deployed on Netlify with fast loading and smooth UI transitions.",
+      technologies: ["React.js", "Tailwind CSS", "TypeScript"],
+      github: "https://github.com/sreyansu/weathora.git",
+      demo: "https://weathoraapp.netlify.app/",
       featured: true,
     },
-    {
-      title: "Computer Vision Object Detector",
-      description: "Real-time object detection system using YOLO algorithm with custom training capabilities.",
-      technologies: ["Python", "OpenCV", "PyTorch", "Flask", "Docker"],
-      github: "#",
-      demo: "#",
-      featured: false,
-    },
-    {
-      title: "Blockchain Voting System",
-      description: "Secure and transparent voting system built on Ethereum blockchain with smart contracts.",
-      technologies: ["Solidity", "Web3.js", "React", "Truffle", "MetaMask"],
-      github: "#",
-      demo: "#",
-      featured: false,
-    },
-    {
-      title: "IoT Weather Monitoring",
-      description: "IoT-based weather monitoring system with real-time data visualization and alerts.",
-      technologies: ["Arduino", "Raspberry Pi", "Python", "MQTT", "InfluxDB"],
-      github: "#",
-      demo: "#",
-      featured: false,
-    },
-    {
-      title: "Mobile Expense Tracker",
-      description: "Cross-platform mobile app for tracking expenses with AI-powered categorization.",
-      technologies: ["React Native", "Firebase", "Redux", "Chart.js", "ML Kit"],
-      github: "#",
-      demo: "#",
-      featured: false,
-    },
+    
   ]
 
   const featuredProjects = projects.filter((p) => p.featured)
@@ -75,10 +43,15 @@ export function ProjectsSection() {
           {featuredProjects.map((project, index) => (
             <Card
               key={index}
-              className="bg-black/40 border-cyan-500/30 backdrop-blur-sm hover:border-cyan-400/50 transition-all duration-300 group overflow-hidden"
+              className="bg-black/60 border-cyan-500/30 backdrop-blur-sm hover:border-cyan-400/50 transition-all duration-300 group overflow-hidden shadow-xl hover:shadow-cyan-500/20"
             >
-              <div className="relative h-48 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 flex items-center justify-center">
-                <div className="text-6xl text-cyan-400/30">{index === 0 ? "🤖" : "🏫"}</div>
+              <div className="relative h-64 overflow-hidden rounded-t-lg">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent z-10 pointer-events-none" />
+                <img
+                  src={index === 0 ? "/aerotech-preview.jpg" : "/weathora-preview.jpg"}
+                  alt={index === 0 ? "Aerotech Website Preview" : "Weathora Weather App Preview"}
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-all duration-500 ease-out"
+                />
               </div>
               <CardHeader>
                 <CardTitle className="text-white group-hover:text-cyan-400 transition-colors">
@@ -95,21 +68,27 @@ export function ProjectsSection() {
                   ))}
                 </div>
                 <div className="flex gap-3 pt-2">
-                  <Button
-                    size="sm"
-                    variant="outline"
-                    className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 bg-transparent"
-                  >
-                    <Github className="w-4 h-4 mr-2" />
-                    Code
-                  </Button>
-                  <Button
-                    size="sm"
-                    className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700"
-                  >
-                    <Play className="w-4 h-4 mr-2" />
-                    Demo
-                  </Button>
+                  {project.github && (
+                    <Button
+                      size="sm"
+                      variant="outline"
+                      className="border-cyan-500 text-cyan-400 hover:bg-cyan-500/10 bg-transparent"
+                      onClick={() => window.open(project.github, "_blank")}
+                    >
+                      <Github className="w-4 h-4 mr-2" />
+                      Code
+                    </Button>
+                  )}
+                  {project.demo && (
+                    <Button
+                      size="sm"
+                      className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700"
+                      onClick={() => window.open(project.demo, "_blank")}
+                    >
+                      <Play className="w-4 h-4 mr-2" />
+                      Demo
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
@@ -117,9 +96,11 @@ export function ProjectsSection() {
         </div>
 
         {/* Other Projects Grid */}
-        <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">Other Projects</h3>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {otherProjects.map((project, index) => (
+        {otherProjects.length > 0 && (
+          <>
+            <h3 className="text-2xl md:text-3xl font-bold text-center mb-8 text-white">Other Projects</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {otherProjects.map((project, index) => (
             <Card
               key={index}
               className="bg-black/40 border-cyan-500/30 backdrop-blur-sm hover:border-cyan-400/50 transition-all duration-300 group"
@@ -144,17 +125,33 @@ export function ProjectsSection() {
                   )}
                 </div>
                 <div className="flex gap-2">
-                  <Button size="sm" variant="ghost" className="text-cyan-400 hover:text-cyan-300 p-2">
-                    <Github className="w-4 h-4" />
-                  </Button>
-                  <Button size="sm" variant="ghost" className="text-cyan-400 hover:text-cyan-300 p-2">
-                    <ExternalLink className="w-4 h-4" />
-                  </Button>
+                  {project.github && (
+                    <Button 
+                      size="sm" 
+                      variant="ghost" 
+                      className="text-cyan-400 hover:text-cyan-300 p-2"
+                      onClick={() => window.open(project.github, "_blank")}
+                    >
+                      <Github className="w-4 h-4" />
+                    </Button>
+                  )}
+                  {project.demo && (
+                    <Button 
+                      size="sm" 
+                      variant="ghost" 
+                      className="text-cyan-400 hover:text-cyan-300 p-2"
+                      onClick={() => window.open(project.demo, "_blank")}
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                    </Button>
+                  )}
                 </div>
               </CardContent>
             </Card>
           ))}
-        </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   )
