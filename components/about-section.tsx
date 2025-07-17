@@ -68,19 +68,18 @@ export function AboutSection() {
             <h3 className="text-2xl font-semibold text-white mb-6">My Journey</h3>
             <div className="space-y-6 text-gray-300">
               <p>
-                As a Computer Science Engineering student, I'm constantly exploring the intersection of technology and
-                innovation. My journey began with a curiosity about how things work, which led me to dive deep into
-                programming, algorithms, and system design.
+                Hailing from Bhadrak, Odisha, my journey into the world of technology has been a blend of relentless curiosity and a passion for creating meaningful digital experiences.
               </p>
               <p>
-                I specialize in full-stack development with expertise in modern frameworks like React, Next.js, and
-                Node.js. My passion extends to artificial intelligence and machine learning, where I've worked on
-                projects involving computer vision, natural language processing, and predictive analytics.
+                🎓 I’m currently pursuing Computer Science and Engineering at VEER SURENDRA SAI UNIVERSITY OF TECHNOLOGY (VSSUT), Sambalpur. My time here has shaped my technical foundation while encouraging me to innovate and collaborate beyond the classroom.
               </p>
               <p>
-                Beyond coding, I enjoy participating in hackathons, contributing to open-source projects, and staying
-                updated with the latest technological trends. I believe in continuous learning and am always excited to
-                take on new challenges that push the boundaries of what's possible.
+                💻 As a Web Developer at the Aerotech Club, I’ve contributed to building and maintaining digital platforms that support club operations and outreach, gaining hands-on experience in full-stack web technologies.
+🌤️ One of my standout projects is Weathora, a modern weather web app with a futuristic UI that adapts to real-time conditions. It integrates weather data, air quality index, and carbon footprint metrics—reflecting my commitment to blending design with environmental consciousness.
+💼 I further honed my skills during a Web Developer Internship at Skill Dunia, Hyderabad, where I worked on real-world web development tasks, focusing on clean code, responsive interfaces, and user-centric design.
+              </p>
+              <p>
+                🔗 Whether it’s crafting intuitive interfaces or exploring new tech stacks, I’m driven by the desire to build solutions that are not only functional but also meaningful.
               </p>
             </div>
 
@@ -90,12 +89,10 @@ export function AboutSection() {
                 {[
                   "Artificial Intelligence",
                   "Web Development",
-                  "Mobile Apps",
-                  "Cloud Computing",
-                  "DevOps",
-                  "Blockchain",
-                  "IoT",
-                  "Cybersecurity",
+                  "DevOps"
+                  
+                  
+                  
                 ].map((interest) => (
                   <Badge
                     key={interest}
