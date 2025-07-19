@@ -32,60 +32,39 @@ export function SkillsSection() {
       icon: Code,
       title: "Frontend Development",
       skills: [
-        { name: "React/Next.js", level: 90 },
-        { name: "TypeScript", level: 85 },
-        { name: "Tailwind CSS", level: 88 },
-        { name: "Vue.js", level: 75 },
+        { name: "React/Next.js", level: 85 },
+        { name: "TypeScript", level: 75 },
+        { name: "Tailwind CSS", level: 80 },
+        { name: "HTML/CSS", level: 95 },
       ],
     },
     {
       icon: Database,
       title: "Backend Development",
       skills: [
-        { name: "Node.js", level: 88 },
-        { name: "Python", level: 92 },
-        { name: "Java", level: 80 },
-        { name: "PostgreSQL", level: 85 },
+        { name: "Node.js", level: 80 },
+        { name: "Python", level: 84 },
+        { name: "Flask", level: 75 },
+        
+        
       ],
     },
     {
       icon: Brain,
       title: "AI/Machine Learning",
       skills: [
-        { name: "TensorFlow", level: 82 },
-        { name: "PyTorch", level: 78 },
-        { name: "OpenCV", level: 85 },
-        { name: "Scikit-learn", level: 88 },
-      ],
-    },
-    {
-      icon: Cloud,
-      title: "Cloud & DevOps",
-      skills: [
-        { name: "AWS", level: 80 },
-        { name: "Docker", level: 85 },
-        { name: "Kubernetes", level: 70 },
-        { name: "CI/CD", level: 82 },
-      ],
-    },
-    {
-      icon: Smartphone,
-      title: "Mobile Development",
-      skills: [
-        { name: "React Native", level: 85 },
-        { name: "Flutter", level: 75 },
-        { name: "Android (Java)", level: 80 },
-        { name: "iOS (Swift)", level: 65 },
+        { name: "Numpy", level: 70 },
+        { name: "Pandas", level: 70 },
+        { name: "OpenCV", level: 70 },
+        { name: "Scikit-learn", level: 70 },
       ],
     },
     {
       icon: Shield,
       title: "Other Technologies",
       skills: [
-        { name: "Blockchain", level: 75 },
-        { name: "GraphQL", level: 80 },
-        { name: "Redis", level: 78 },
-        { name: "MongoDB", level: 85 },
+        { name: "Firebase", level: 85 },
+        { name: "Git/GitHub", level: 90 },
       ],
     },
   ]
@@ -94,19 +73,11 @@ export function SkillsSection() {
     "VS Code",
     "Git",
     "GitHub",
-    "Figma",
-    "Postman",
-    "Jira",
-    "Slack",
-    "Notion",
     "Firebase",
     "Vercel",
     "Netlify",
-    "Heroku",
     "Linux",
-    "Vim",
     "Jupyter",
-    "Arduino IDE",
   ]
 
   return (
