@@ -6,7 +6,7 @@ import { Code, Database, Cloud, Smartphone, Brain, Shield } from "lucide-react"
 
 interface SkillBarProps {
   name: string
-  level: number
+  level: numbe
 }
 
 function SkillBar({ name, level }: SkillBarProps) {
