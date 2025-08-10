@@ -2,7 +2,7 @@
 
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { GraduationCap, Code, Brain, Rocket } from "lucide"
+import { GraduationCap, Code, Brain, Rocket } from "lucide-react"
 
 export function AboutSection() {
   const highlights = [
